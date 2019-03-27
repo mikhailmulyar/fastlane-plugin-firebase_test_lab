@@ -37,7 +37,7 @@ module Fastlane
               UI.user_error!("Failed to find your UI tests scheme in your .xctestrun file.")
             end
 
-            unless scheme_conf["IsUITestBundle"]
+            unless scheme_conf["IsUITestBundle"] or scheme_conf["IsAppHostedTestBundle"]
               UI.user_error!("The app bundle is not a UI test bundle. Did you build with build-for-testing argument?")
             end
             unless scheme_conf.key?("TestHostPath") || scheme_conf.key?("TestBundlePath")
